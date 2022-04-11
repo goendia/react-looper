@@ -18,7 +18,7 @@ const songs: Songs = [
     tracks: [
       {svg: '/assets/anemoney_track01_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track01.mp3', volume: -20},
       {svg: '/assets/anemoney_track02_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track02.mp3', reverb: 0.4},
-      {svg: '/assets/anemoney_track03_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track03.mp3'},
+      {svg: '/assets/anemoney_track03_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track03.mp3', volume: -20},
       {svg: '/assets/anemoney_track04_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track04.mp3'},
     ]
   },
@@ -109,7 +109,7 @@ const styles = {
     width: 3,
     height: '100%',
     left: '0%',
-    position: 'absolute' as 'absolute',
+    position: 'relative' as 'relative',
     backgroundColor: 'rgb(248, 0, 0)'
   },
   button: {
