@@ -8,7 +8,7 @@ type Songs = {
     svg: string
     audio: string
     volume?: number
-    reverb?: boolean
+    reverb?: number
   }[]
 }[]
 
@@ -17,7 +17,7 @@ const songs: Songs = [
     title: 'Anemoney (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/anemoney_track01_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track01.mp3', volume: -20},
-      {svg: '/assets/anemoney_track02_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track02.mp3'},
+      {svg: '/assets/anemoney_track02_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track02.mp3', reverb: 0.4},
       {svg: '/assets/anemoney_track03_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track03.mp3'},
       {svg: '/assets/anemoney_track04_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track04.mp3'},
     ]
@@ -87,11 +87,12 @@ const App = () => {
         <div ref={progressRef} style={styles.progress}/>
         {songs[song].tracks.map((song, i) =>
           <Track
-            key={song.audio}
+            key={song.audio + i}
             onPress={() => clicked(i)}
             muted={!unmutedTracks.includes(i)}
             svg={song.svg}
             audio={song.audio}
+            reverb={song.reverb || 0}
             volume={song.volume || 0}
           />
         )}
