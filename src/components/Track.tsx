@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import * as Tone from 'tone'
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   onPress: () => void
 }
 
-const Track = memo(({svg, audio, muted, onPress, volume}: Props) => {
+const Track = ({svg, audio, muted, onPress, volume}: Props) => {
   const player = useMemo(() =>
                   new Tone.Player({
                     url: audio,
@@ -38,6 +38,6 @@ const Track = memo(({svg, audio, muted, onPress, volume}: Props) => {
       onMouseOut={() => setMouseOver(false)}
     />
   )
-})
+}
 
 export default Track

@@ -43,19 +43,23 @@ const App = () => {
   
   useEffect(() => {
     const keyUp = (e: KeyboardEvent) => {
-      if (e.key >= '1' && e.key <= '4') {
-        // Console log information about the key pressed
+      if (e.key >= '1' && e.key <= songs[song].tracks.length.toString()) {
         console.log(`Track ${e.key} was pressed`)
-        const track = Number(e.key) - 1
-        if (unmutedTracks.includes(track)) {
-          setUnmutedTracks(unmutedTracks.filter(t => t !== track))
-        } else {
-          setUnmutedTracks([...unmutedTracks, track])
-        }
+        const track = parseInt(e.key) - 1
+            , tracks = unmutedTracks.includes(track) ?
+                        unmutedTracks.filter(t => t !== track) :
+                        [...unmutedTracks, track]
+
+        setUnmutedTracks(tracks)
+        if (tracks.length === 0)
+          Transport.stop()
+        else if (tracks.length === 1 && Transport.state !== 'started')
+          Transport.start()
       }
     }
     document.addEventListener('keyup', keyUp)
-  }, [])
+    return () => document.removeEventListener('keydown', keyUp)
+  }, [unmutedTracks])
 
   useEffect(() => {
     progressRef.current && setInterval(() =>
@@ -65,7 +69,6 @@ const App = () => {
   }, [progressRef])
 
   const clicked = (track: number) => {
-    console.log(0)
     const tracks = unmutedTracks.includes(track) ?
       unmutedTracks.filter((id: number) => id !== track) :
       [...unmutedTracks, track]
