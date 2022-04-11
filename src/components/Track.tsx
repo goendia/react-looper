@@ -28,7 +28,7 @@ const Track = memo(({svg, audio, muted, onPress, volume}: Props) => {
   return (
     <img
       onClick={onPress}
-      alt="Track"
+      alt="Audio-Track"
       src={svg}
       style={{
         opacity: !muted ? 1 : mouseOver ? 0.7 : 0.5,
