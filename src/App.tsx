@@ -130,14 +130,14 @@ const App = () => {
     setInterval(() =>
       progressRef.current &&
       // @ts-ignore
-      (progressRef.current.style.left = `${Transport.progress*100}%`)
+      (progressRef.current.style.left = `${(Transport.progress%1)*100}%`)
     , 40)
   }, [progressRef])
 
   const switchTo = (song: number) => {
-    console.log(song)
     Transport.stop()
     Transport.position = 0
+    Transport.loopStart = 0
     setUnmutedTracks([])
     setSong(song)
   }
@@ -160,7 +160,7 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div style={{position: 'relative'}}>
         <div ref={progressRef} style={styles.progress}/>
         {songs[song].tracks.map((song, i) =>
           <Track
@@ -192,7 +192,8 @@ const App = () => {
 const styles = {
   progress: {
     width: 3,
-    height: '100%',
+    top: 0,
+    bottom: 0,
     left: '0%',
     position: 'absolute' as 'absolute',
     backgroundColor: 'rgb(248, 0, 0)'
