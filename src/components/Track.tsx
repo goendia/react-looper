@@ -12,9 +12,10 @@ type Props = {
 }
 
 const Track = ({svg, audio, muted, onPress, onDuration, volume, reverb}: Props) => {
-  const [buffer] = useState<Tone.ToneAudioBuffer>(
-          new Tone.ToneAudioBuffer(audio, (buffer: Tone.ToneAudioBuffer) => onDuration(buffer.duration))
-        )
+  const [mouseOver, setMouseOver] = useState<boolean>(false)
+      , [buffer] = useState<Tone.ToneAudioBuffer>(
+        new Tone.ToneAudioBuffer(audio, (buffer: Tone.ToneAudioBuffer) => onDuration(buffer.duration))
+      )
       , player = useMemo(() => {
           const player = new Tone.Player({
             url: buffer,
@@ -32,12 +33,13 @@ const Track = ({svg, audio, muted, onPress, onDuration, volume, reverb}: Props) 
 
           return player
         }, [audio, volume])
-      , [mouseOver, setMouseOver] = useState<boolean>(false)
+      
   
   useEffect(() => {
     if (player)
       player.mute = muted
   }, [muted, player])
+  useEffect(() => () => { player.mute = true }, [])
 
   return (
     <img

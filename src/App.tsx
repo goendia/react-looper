@@ -102,7 +102,7 @@ Transport.loop = true
 Transport.loopStart = 0
 
 const App = () => {
-  const [song] = useState<number>(1)
+  const [song, setSong] = useState<number>(4)
       , [unmutedTracks, setUnmutedTracks] = useState<number[]>([])
       , progressRef = useRef(null)
   
@@ -127,12 +127,20 @@ const App = () => {
   }, [unmutedTracks])
 
   useEffect(() => {
-     setInterval(() =>
-     progressRef.current &&
-     // @ts-ignore
-    (progressRef.current.style.left = `${Transport.progress*100}%`)
+    setInterval(() =>
+      progressRef.current &&
+      // @ts-ignore
+      (progressRef.current.style.left = `${Transport.progress*100}%`)
     , 40)
   }, [progressRef])
+
+  const switchTo = (song: number) => {
+    console.log(song)
+    Transport.stop()
+    Transport.position = 0
+    setUnmutedTracks([])
+    setSong(song)
+  }
 
   const duration = (seconds: number) =>
     Transport.loopEnd = seconds
@@ -167,6 +175,13 @@ const App = () => {
           />
         )}
       </div>
+      <select onChange={(event) => switchTo(parseInt(event.currentTarget.value))} style={styles.select}>
+        {songs.map((song, i) =>
+          <option key={`song${i}`} value={i}>
+            {song.title}
+          </option>
+        )}
+      </select>
       <label>
         {songs[song].title}
       </label>
@@ -183,6 +198,11 @@ const styles = {
     backgroundColor: 'rgb(248, 0, 0)'
   },
   button: {
+    position: 'absolute' as 'absolute',
+    right: 10,
+    top: 10
+  },
+  select: {
     position: 'absolute' as 'absolute',
     right: 10,
     top: 10
