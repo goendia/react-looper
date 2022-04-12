@@ -16,20 +16,86 @@ const songs: Songs = [
   {
     title: 'Anemoney (2014 - recorded on Android with Loopstack App)',
     tracks: [
-      {svg: '/assets/anemoney_track01_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track01.mp3', volume: -20},
-      {svg: '/assets/anemoney_track02_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track02.mp3', reverb: 0.4},
-      {svg: '/assets/anemoney_track03_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track03.mp3', volume: -20},
-      {svg: '/assets/anemoney_track04_5_03_white.svg', audio: '/audio/Anemoney/ANEMONEY_Track04.mp3'},
+      {svg: '/assets/svg_tracks/ANEMONEY_Track01.svg', audio: '/audio/tracks/ANEMONEY_Track01.mp3', reverb: 0.3},
+      {svg: '/assets/svg_tracks/ANEMONEY_Track02.svg', audio: '/audio/tracks/ANEMONEY_Track02.mp3', reverb: 0.3},
+      {svg: '/assets/svg_tracks/ANEMONEY_Track03.svg', audio: '/audio/tracks/ANEMONEY_Track03.mp3', reverb: 0.3},
+      {svg: '/assets/svg_tracks/ANEMONEY_Track04.svg', audio: '/audio/tracks/ANEMONEY_Track04.mp3', reverb: 0.4},
     ]
   },
   {
-    title: 'BENEBEDABABAU',
+    title: 'BENEBEDABABAU (2014 - recorded on Android with Loopstack App)',
     tracks: [
-      {svg: '/assets/anemoney_track01_5_03_white.svg', audio: '/audio/other-loop-tracks/BENEBEDABABAU_Track01.mp3'},
-      {svg: '/assets/anemoney_track02_5_03_white.svg', audio: '/audio/other-loop-tracks/BENEBEDABABAU_Track02.mp3'},
-      {svg: '/assets/anemoney_track03_5_03_white.svg', audio: '/audio/other-loop-tracks/BENEBEDABABAU_Track03.mp3'},
+      {svg: '/assets/svg_tracks/BENEBEDABABAU_Track01.svg', audio: '/audio/tracks/BENEBEDABABAU_Track01.mp3'},
+      {svg: '/assets/svg_tracks/BENEBEDABABAU_Track02.svg', audio: '/audio/tracks/BENEBEDABABAU_Track02.mp3'},
+      {svg: '/assets/svg_tracks/BENEBEDABABAU_Track03.svg', audio: '/audio/tracks/BENEBEDABABAU_Track03.mp3'},
     ]
-  }
+  },
+  {
+    title: 'BIMBIBABIDIMM (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/BIMBIBABIDIMM_Track01.svg', audio: '/audio/tracks/BIMBIBABIDIMM_Track01.mp3'},
+      {svg: '/assets/svg_tracks/BIMBIBABIDIMM_Track02.svg', audio: '/audio/tracks/BIMBIBABIDIMM_Track02.mp3'},
+      {svg: '/assets/svg_tracks/BIMBIBABIDIMM_Track03.svg', audio: '/audio/tracks/BIMBIBABIDIMM_Track03.mp3'},
+      {svg: '/assets/svg_tracks/BIMBIBABIDIMM_Track04.svg', audio: '/audio/tracks/BIMBIBABIDIMM_Track04.mp3'},
+    ]
+  },
+  {
+    title: 'CHICKECHICK (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/CHICKECHICK_Track01.svg', audio: '/audio/tracks/CHICKECHICK_Track01.mp3'},
+      {svg: '/assets/svg_tracks/CHICKECHICK_Track03.svg', audio: '/audio/tracks/CHICKECHICK_Track03.mp3'},
+      {svg: '/assets/svg_tracks/CHICKECHICK_Track04.svg', audio: '/audio/tracks/CHICKECHICK_Track04.mp3'},
+    ]
+  },
+  {
+    title: 'DEDEDADADIBDOM (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/DEDEDADADIBDOM_Track01.svg', audio: '/audio/tracks/DEDEDADADIBDOM_Track01.mp3'},
+      {svg: '/assets/svg_tracks/DEDEDADADIBDOM_Track02.svg', audio: '/audio/tracks/DEDEDADADIBDOM_Track02.mp3'},
+      {svg: '/assets/svg_tracks/DEDEDADADIBDOM_Track03.svg', audio: '/audio/tracks/DEDEDADADIBDOM_Track03.mp3'},
+    ]
+  },
+  {
+    title: 'EBADADEDEDOU (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/EBADADEDEDOU_Track01.svg', audio: '/audio/tracks/EBADADEDEDOU_Track01.mp3'},
+      {svg: '/assets/svg_tracks/EBADADEDEDOU_Track02.svg', audio: '/audio/tracks/EBADADEDEDOU_Track02.mp3'},
+      {svg: '/assets/svg_tracks/EBADADEDEDOU_Track04.svg', audio: '/audio/tracks/EBADADEDEDOU_Track04.mp3'},
+    ]
+  },
+  {
+    title: 'EYAYAE (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/EYAYAE_Track01.svg', audio: '/audio/tracks/EYAYAE_Track01.mp3'},
+      {svg: '/assets/svg_tracks/EYAYAE_Track02.svg', audio: '/audio/tracks/EYAYAE_Track02.mp3'},
+      {svg: '/assets/svg_tracks/EYAYAE_Track03.svg', audio: '/audio/tracks/EYAYAE_Track03.mp3'},
+    ]
+  },
+  {
+    title: 'LAGGIE (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/LAGGIE_Track01.svg', audio: '/audio/tracks/LAGGIE_Track01.mp3'},
+      {svg: '/assets/svg_tracks/LAGGIE_Track02.svg', audio: '/audio/tracks/LAGGIE_Track02.mp3'},
+    ]
+  },
+  {
+    title: 'MRUNNRUNN (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/MRUNNRUNN_Track01.svg', audio: '/audio/tracks/MRUNNRUNN_Track01.mp3'},
+      {svg: '/assets/svg_tracks/MRUNNRUNN_Track02.svg', audio: '/audio/tracks/MRUNNRUNN_Track02.mp3'},
+      {svg: '/assets/svg_tracks/MRUNNRUNN_Track03.svg', audio: '/audio/tracks/MRUNNRUNN_Track03.mp3'},
+      {svg: '/assets/svg_tracks/MRUNNRUNN_Track04.svg', audio: '/audio/tracks/MRUNNRUNN_Track04.mp3'},
+    ]
+  },
+  {
+    title: 'WABBADOBO (2014 - recorded on Android with Loopstack App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/WABBADOBO_Track01.svg', audio: '/audio/tracks/WABBADOBO_Track01.mp3'},
+      {svg: '/assets/svg_tracks/WABBADOBO_Track02.svg', audio: '/audio/tracks/WABBADOBO_Track02.mp3'},
+      {svg: '/assets/svg_tracks/WABBADOBO_Track03.svg', audio: '/audio/tracks/WABBADOBO_Track03.mp3'},
+      {svg: '/assets/svg_tracks/WABBADOBO_Track04.svg', audio: '/audio/tracks/WABBADOBO_Track04.mp3'},
+    ]
+  },
 ]
 
 Transport.loop = true
@@ -109,7 +175,7 @@ const styles = {
     width: 3,
     height: '100%',
     left: '0%',
-    position: 'relative' as 'relative',
+    position: 'absolute' as 'absolute',
     backgroundColor: 'rgb(248, 0, 0)'
   },
   button: {
