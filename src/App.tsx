@@ -100,10 +100,9 @@ const songs: Songs = [
 
 Transport.loop = true
 Transport.loopStart = 0
-Transport.loopEnd = 7.619
 
 const App = () => {
-  const [song] = useState<number>(0)
+  const [song] = useState<number>(1)
       , [unmutedTracks, setUnmutedTracks] = useState<number[]>([])
       , progressRef = useRef(null)
   
@@ -128,11 +127,15 @@ const App = () => {
   }, [unmutedTracks])
 
   useEffect(() => {
-    progressRef.current && setInterval(() =>
-      // @ts-ignore
-      progressRef.current.style.left = `${Transport.progress*100}%`
+     setInterval(() =>
+     progressRef.current &&
+     // @ts-ignore
+    (progressRef.current.style.left = `${Transport.progress*100}%`)
     , 40)
   }, [progressRef])
+
+  const duration = (seconds: number) =>
+    Transport.loopEnd = seconds
 
   const clicked = (track: number) => {
     const tracks = unmutedTracks.includes(track) ?
@@ -155,6 +158,7 @@ const App = () => {
           <Track
             key={song.audio + i}
             onPress={() => clicked(i)}
+            onDuration={(seconds: number) => duration(seconds)}
             muted={!unmutedTracks.includes(i)}
             svg={song.svg}
             audio={song.audio}
