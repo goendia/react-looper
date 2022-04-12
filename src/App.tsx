@@ -102,7 +102,7 @@ Transport.loop = true
 Transport.loopStart = 0
 
 const App = () => {
-  const [song, setSong] = useState<number>(4)
+  const [song, setSong] = useState<number>(0)
       , [unmutedTracks, setUnmutedTracks] = useState<number[]>([])
       , progressRef = useRef(null)
   
@@ -160,7 +160,7 @@ const App = () => {
 
   return (
     <>
-      <div style={{position: 'relative'}}>
+      <div style={styles.container}>
         <div ref={progressRef} style={styles.progress}/>
         {songs[song].tracks.map((song, i) =>
           <Track
@@ -174,14 +174,14 @@ const App = () => {
             volume={song.volume || 0}
           />
         )}
+        <select onChange={(event) => switchTo(parseInt(event.currentTarget.value))} style={styles.select}>
+          {songs.map((song, i) =>
+            <option key={`song${i}`} value={i}>
+              {song.title}
+            </option>
+          )}
+        </select>
       </div>
-      <select onChange={(event) => switchTo(parseInt(event.currentTarget.value))} style={styles.select}>
-        {songs.map((song, i) =>
-          <option key={`song${i}`} value={i}>
-            {song.title}
-          </option>
-        )}
-      </select>
       <label>
         {songs[song].title}
       </label>
@@ -190,6 +190,9 @@ const App = () => {
 }
 
 const styles = {
+  container: {
+    position: 'relative' as 'relative'
+  },
   progress: {
     width: 3,
     top: 0,
