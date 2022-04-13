@@ -14,9 +14,13 @@ type Props = {
 const Track = ({svg, audio, muted, onPress, onDuration, volume, reverb}: Props) => {
   const [mouseOver, setMouseOver] = useState<boolean>(false)
       , [buffer] = useState<Tone.ToneAudioBuffer>(
-        new Tone.ToneAudioBuffer(audio, (buffer: Tone.ToneAudioBuffer) => onDuration(buffer.duration))
+        new Tone.ToneAudioBuffer(audio,
+          // Set a callback which fires when the audio buffer is loaded
+          (buffer: Tone.ToneAudioBuffer) => onDuration(buffer.duration)
+        )
       )
       , player = useMemo(() => {
+          // Initialize the player
           const player = new Tone.Player({
             url: buffer,
             loop: true,
@@ -24,6 +28,7 @@ const Track = ({svg, audio, muted, onPress, onDuration, volume, reverb}: Props) 
             volume
           }).toDestination().sync().start(0)
 
+          // Activate reverb if reverb is set
           if (reverb)
             player.chain(new Tone.Reverb({
               wet: reverb,
@@ -34,12 +39,11 @@ const Track = ({svg, audio, muted, onPress, onDuration, volume, reverb}: Props) 
           return player
         }, [audio, volume])
       
+  // Pass through mute state
+  useEffect(() => { player.mute = muted }, [muted, player])
   
-  useEffect(() => {
-    if (player)
-      player.mute = muted
-  }, [muted, player])
-  useEffect(() => () => { player.mute = true }, [])
+  // Dispose player when component is unmounted
+  useEffect(() => () => { player.dispose() }, [])
 
   return (
     <img

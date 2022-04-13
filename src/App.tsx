@@ -4,13 +4,15 @@ import { Transport } from 'tone'
 
 type Songs = {
   title: string
-  tracks: {
-    svg: string
-    audio: string
-    volume?: number
-    reverb?: number
-  }[]
+  tracks: Track[]
 }[]
+
+type Track = {
+  svg: string
+  audio: string
+  volume?: number
+  reverb?: number
+}
 
 const songs: Songs = [
   {
@@ -109,21 +111,17 @@ const App = () => {
   useEffect(() => {
     const keyUp = (e: KeyboardEvent) => {
       if (e.key >= '1' && e.key <= songs[song].tracks.length.toString()) {
-        console.log(`Track ${e.key} was pressed`)
         const track = parseInt(e.key) - 1
             , tracks = unmutedTracks.includes(track) ?
                         unmutedTracks.filter(t => t !== track) :
                         [...unmutedTracks, track]
 
         setUnmutedTracks(tracks)
-        if (tracks.length === 0)
-          Transport.stop()
-        else if (tracks.length === 1 && Transport.state !== 'started')
-          Transport.start()
+        startOrStop(tracks)
       }
     }
     document.addEventListener('keyup', keyUp)
-    return () => document.removeEventListener('keydown', keyUp)
+    return () => document.removeEventListener('keyup', keyUp)
   }, [unmutedTracks])
 
   useEffect(() => {
@@ -150,12 +148,15 @@ const App = () => {
       unmutedTracks.filter((id: number) => id !== track) :
       [...unmutedTracks, track]
     
+    startOrStop(tracks)
+    setUnmutedTracks(tracks)
+  }
+
+  const startOrStop = (tracks: number[]) => {
     if (tracks.length === 1 && Transport.state !== 'started')
       Transport.start()
     else if (tracks.length === 0)
       Transport.stop()
-
-    setUnmutedTracks(tracks)
   }
 
   return (
@@ -174,7 +175,11 @@ const App = () => {
             volume={song.volume || 0}
           />
         )}
-        <select onChange={(event) => switchTo(parseInt(event.currentTarget.value))} style={styles.select}>
+
+        <select
+          onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
+          style={styles.select}
+        >
           {songs.map((song, i) =>
             <option key={`song${i}`} value={i}>
               {song.title}
