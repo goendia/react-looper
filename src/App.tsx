@@ -110,6 +110,7 @@ const App = () => {
   
   useEffect(() => {
     const keyUp = (e: KeyboardEvent) => {
+      e.preventDefault()
       if (e.key >= '1' && e.key <= songs[song].tracks.length.toString()) {
         const track = parseInt(e.key) - 1
             , tracks = unmutedTracks.includes(track) ?
@@ -118,7 +119,8 @@ const App = () => {
 
         setUnmutedTracks(tracks)
         startOrStop(tracks)
-      }
+      } else if (e.key === ' ')
+        Transport.state === 'started' ? Transport.stop() : Transport.start()
     }
     document.addEventListener('keyup', keyUp)
     return () => document.removeEventListener('keyup', keyUp)
