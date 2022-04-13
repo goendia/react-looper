@@ -135,13 +135,15 @@ const App = () => {
   }, [progressRef])
 
   const switchTo = (song: number) => {
-    Transport.stop()
+    if (Transport.state === 'started')
+      Transport.stop()
+    
     Transport.position = 0
     Transport.loopStart = 0
     setUnmutedTracks([])
     setSong(song)
   }
-
+  const name = 'foobar'
   const duration = (seconds: number) =>
     Transport.loopEnd = seconds
 
