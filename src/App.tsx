@@ -179,21 +179,17 @@ const App = () => {
             volume={song.volume || 0}
           />
         )}
-
-        <select
+      </div>
+      <select
           onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
           style={styles.select}
-        >
-          {songs.map((song, i) =>
-            <option key={`song${i}`} value={i}>
-              {song.title}
-            </option>
-          )}
-        </select>
-      </div>
-      <label>
-        {songs[song].title}
-      </label>
+      >
+        {songs.map((song, i) =>
+          <option key={`song${i}`} value={i}>
+            {song.title}
+          </option>
+        )}
+      </select>
     </>
   )
 }
@@ -210,16 +206,15 @@ const styles = {
     position: 'absolute' as 'absolute',
     backgroundColor: 'rgb(248, 0, 0)'
   },
-  button: {
-    position: 'absolute' as 'absolute',
-    right: 10,
-    top: 10
-  },
   select: {
-    position: 'absolute' as 'absolute',
-    right: 10,
-    top: 10
-  }
+    display: 'block',
+    'margin-top': '3%',
+    'margin-left': 'auto',
+    'margin-right': 'auto',
+    backgroundColor: 'transparent',
+    color: 'white',
+    border: 'none',
+  },
 }
 
 export default App
