@@ -4,6 +4,7 @@ import { Transport } from 'tone'
 
 type Songs = {
   title: string
+  description: string
   tracks: Track[]
 }[]
 
@@ -16,7 +17,8 @@ type Track = {
 
 const songs: Songs = [
   {
-    title: 'Anemoney (2014 - recorded on Android with Loopstack App)',
+    title: 'ANEMONEY',
+    description: 'ANEMONEY (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/ANEMONEY_Track01.svg', audio: '/audio/tracks/ANEMONEY_Track01.mp3', reverb: 0.3},
       {svg: '/assets/svg_tracks/ANEMONEY_Track02.svg', audio: '/audio/tracks/ANEMONEY_Track02.mp3', reverb: 0.3},
@@ -25,7 +27,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'BENEBEDABABAU (2014 - recorded on Android with Loopstack App)',
+    title: 'BENEBEDABABAU',
+    description: 'BENEBEDABABAU (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/BENEBEDABABAU_Track01.svg', audio: '/audio/tracks/BENEBEDABABAU_Track01.mp3'},
       {svg: '/assets/svg_tracks/BENEBEDABABAU_Track02.svg', audio: '/audio/tracks/BENEBEDABABAU_Track02.mp3'},
@@ -33,7 +36,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'BIMBIBABIDIMM (2014 - recorded on Android with Loopstack App)',
+    title: 'BIMBIBABIDIMM',
+    description: 'BIMBIBABIDIMM (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/BIMBIBABIDIMM_Track01.svg', audio: '/audio/tracks/BIMBIBABIDIMM_Track01.mp3'},
       {svg: '/assets/svg_tracks/BIMBIBABIDIMM_Track02.svg', audio: '/audio/tracks/BIMBIBABIDIMM_Track02.mp3'},
@@ -42,7 +46,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'CHICKECHICK (2014 - recorded on Android with Loopstack App)',
+    title: 'CHICKECHICK',
+    description: 'CHICKECHICK (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/CHICKECHICK_Track01.svg', audio: '/audio/tracks/CHICKECHICK_Track01.mp3'},
       {svg: '/assets/svg_tracks/CHICKECHICK_Track03.svg', audio: '/audio/tracks/CHICKECHICK_Track03.mp3'},
@@ -50,7 +55,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'DEDEDADADIBDOM (2014 - recorded on Android with Loopstack App)',
+    title: 'DEDEDADADIBDOM',
+    description: 'DEDEDADADIBDOM (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/DEDEDADADIBDOM_Track01.svg', audio: '/audio/tracks/DEDEDADADIBDOM_Track01.mp3'},
       {svg: '/assets/svg_tracks/DEDEDADADIBDOM_Track02.svg', audio: '/audio/tracks/DEDEDADADIBDOM_Track02.mp3'},
@@ -58,7 +64,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'EBADADEDEDOU (2014 - recorded on Android with Loopstack App)',
+    title: 'EBADADEDEDOU',
+    description: 'EBADADEDEDOU (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/EBADADEDEDOU_Track01.svg', audio: '/audio/tracks/EBADADEDEDOU_Track01.mp3'},
       {svg: '/assets/svg_tracks/EBADADEDEDOU_Track02.svg', audio: '/audio/tracks/EBADADEDEDOU_Track02.mp3'},
@@ -66,7 +73,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'EYAYAE (2014 - recorded on Android with Loopstack App)',
+    title: 'EYAYAE',
+    description: 'EYAYAE (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/EYAYAE_Track01.svg', audio: '/audio/tracks/EYAYAE_Track01.mp3'},
       {svg: '/assets/svg_tracks/EYAYAE_Track02.svg', audio: '/audio/tracks/EYAYAE_Track02.mp3'},
@@ -74,14 +82,16 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'LAGGIE (2014 - recorded on Android with Loopstack App)',
+    title: 'LAGGIE',
+    description: 'LAGGIE (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/LAGGIE_Track01.svg', audio: '/audio/tracks/LAGGIE_Track01.mp3'},
       {svg: '/assets/svg_tracks/LAGGIE_Track02.svg', audio: '/audio/tracks/LAGGIE_Track02.mp3'},
     ]
   },
   {
-    title: 'MRUNNRUNN (2014 - recorded on Android with Loopstack App)',
+    title: 'MRUNNRUNN',
+    description: 'MRUNNRUNN (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/MRUNNRUNN_Track01.svg', audio: '/audio/tracks/MRUNNRUNN_Track01.mp3'},
       {svg: '/assets/svg_tracks/MRUNNRUNN_Track02.svg', audio: '/audio/tracks/MRUNNRUNN_Track02.mp3'},
@@ -90,7 +100,8 @@ const songs: Songs = [
     ]
   },
   {
-    title: 'WABBADOBO (2014 - recorded on Android with Loopstack App)',
+    title: 'WABBADOBO',
+    description: 'WABBADOBO (2014 - recorded on Android with Loopstack App)',
     tracks: [
       {svg: '/assets/svg_tracks/WABBADOBO_Track01.svg', audio: '/audio/tracks/WABBADOBO_Track01.mp3', reverb: 0.3},
       {svg: '/assets/svg_tracks/WABBADOBO_Track02.svg', audio: '/audio/tracks/WABBADOBO_Track02.mp3', reverb: 0.3},
@@ -165,6 +176,16 @@ const App = () => {
 
   return (
     <>
+          <select
+          onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
+          style={styles.select}
+      >
+        {songs.map((song, i) =>
+          <option key={`song${i}`} value={i}>
+            {song.title}
+          </option>
+        )}
+      </select>
       <div style={styles.container}>
         <div ref={progressRef} style={styles.progress}/>
         {songs[song].tracks.map((song, i) =>
@@ -180,16 +201,10 @@ const App = () => {
           />
         )}
       </div>
-      <select
-          onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
-          style={styles.select}
-      >
-        {songs.map((song, i) =>
-          <option key={`song${i}`} value={i}>
-            {song.title}
-          </option>
-        )}
-      </select>
+
+      <label style={styles.caption}>
+        {songs[song].description}
+      </label>
     </>
   )
 }
@@ -208,13 +223,19 @@ const styles = {
   },
   select: {
     display: 'block',
-    'margin-top': '3%',
+    'margin-bottom': '3%',
     'margin-left': 'auto',
     'margin-right': 'auto',
-    backgroundColor: 'transparent',
+    backgroundColor: 'black',
+    'font-size': '15px',
     color: 'white',
     border: 'none',
   },
+  caption: {
+    'margin-top': '2%',
+    backgroundColor: 'black',
+    color: 'white', 
+  }
 }
 
 export default App
