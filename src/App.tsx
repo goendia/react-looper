@@ -141,7 +141,7 @@ const App = () => {
     setInterval(() =>
       progressRef.current &&
       // @ts-ignore
-      (progressRef.current.style.left = `${(Transport.progress%1)*100}%`)
+      (progressRef.current.style.left = `${Transport.progress*100}%`)
     , 40)
   }, [progressRef])
 
