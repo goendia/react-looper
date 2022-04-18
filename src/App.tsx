@@ -176,16 +176,7 @@ const App = () => {
 
   return (
     <>
-          <select
-          onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
-          style={styles.select}
-      >
-        {songs.map((song, i) =>
-          <option key={`song${i}`} value={i}>
-            {song.title}
-          </option>
-        )}
-      </select>
+
       <div style={styles.container}>
         <div ref={progressRef} style={styles.progress}/>
         {songs[song].tracks.map((song, i) =>
@@ -202,15 +193,23 @@ const App = () => {
         )}
       </div>
 
-      <label style={styles.caption}>
-        {songs[song].description}
-      </label>
+      <select
+          onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
+          style={styles.select}
+      >
+        {songs.map((song, i) =>
+          <option key={`song${i}`} value={i}>
+            {song.title}
+          </option>
+        )}
+      </select>
     </>
   )
 }
 
 const styles = {
   container: {
+    'margin-top': '13%',
     position: 'relative' as 'relative'
   },
   progress: {
@@ -222,8 +221,8 @@ const styles = {
     backgroundColor: 'rgb(248, 0, 0)'
   },
   select: {
-    display: 'block',
-    'margin-bottom': '3%',
+    'margin-top': '2%',
+    'margin-bottom': '2%',
     'margin-left': 'auto',
     'margin-right': 'auto',
     backgroundColor: 'black',
