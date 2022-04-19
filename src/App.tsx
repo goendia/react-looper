@@ -109,6 +109,16 @@ const songs: Songs = [
       {svg: '/assets/svg_tracks/WABBADOBO_Track04.svg', audio: '/audio/tracks/WABBADOBO_Track04.mp3', volume: -7},
     ]
   },
+  {
+    title: 'Treppenhaustest',
+    description: 'Treppenhaustest (2019 - recorded on iOS with Loopy App)',
+    tracks: [
+      {svg: '/assets/svg_tracks/WABBADOBO_Track01.svg', audio: '/audio/tracks/Treppenhaustest_Track0.mp3'},
+      {svg: '/assets/svg_tracks/WABBADOBO_Track02.svg', audio: '/audio/tracks/Treppenhaustest_Track2.mp3'},
+      {svg: '/assets/svg_tracks/WABBADOBO_Track03.svg', audio: '/audio/tracks/Treppenhaustest_Track3.mp3'},
+      {svg: '/assets/svg_tracks/WABBADOBO_Track04.svg', audio: '/audio/tracks/Treppenhaustest_Track4.mp3'},
+    ]
+  },
 ]
 
 Transport.loop = true
@@ -209,29 +219,28 @@ const App = () => {
 
 const styles = {
   container: {
-    'margin-top': '13%',
+    marginTop: '13%',
     position: 'relative' as 'relative'
   },
   progress: {
     width: 3,
-    top: 0,
-    bottom: 0,
+    height: '100%',
     left: '0%',
     position: 'absolute' as 'absolute',
     backgroundColor: 'rgb(248, 0, 0)'
   },
   select: {
-    'margin-top': '2%',
-    'margin-bottom': '2%',
-    'margin-left': 'auto',
-    'margin-right': 'auto',
+    marginTop: '2%',
+    marginBottom: '2%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     backgroundColor: 'black',
-    'font-size': '15px',
+    fontSize: '15px',
     color: 'white',
     border: 'none',
   },
   caption: {
-    'margin-top': '2%',
+    marginTop: '2%',
     backgroundColor: 'black',
     color: 'white', 
   }
