@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Track from './components/Track'
-import { Transport } from 'tone'
-import * as Tone from 'tone'
+import { Transport, context } from 'tone'
 import songs from './songs'
 import styles from './style'
 
@@ -63,7 +62,7 @@ const App = () => {
 
   const startOrStop = (tracks: number[]) => {
     if (tracks.length >= 1 && Transport.state !== 'started'){
-      Tone.context.resume()
+      context.resume()
       Transport.start()
     }
     else if (tracks.length === 0)
