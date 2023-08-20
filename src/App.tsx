@@ -99,6 +99,9 @@ const App = () => {
           </option>
         )}
       </select>
+      <div style={styles.caption}>
+        {songs[song].description}
+      </div>
     </>
   )
 }

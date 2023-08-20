@@ -21,7 +21,6 @@ const styles = {
       border: 'none',
     },
     caption: {
-      marginTop: '2%',
       backgroundColor: 'black',
       color: 'white', 
     }
