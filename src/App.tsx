@@ -87,7 +87,9 @@ const App = () => {
           />
         )}
       </div>
-
+      <div style={styles.caption}>
+        {songs[song].description}
+      </div>
       <select
           onChange={(event) => switchTo(parseInt(event.currentTarget.value))}
           style={styles.select}
@@ -98,9 +100,7 @@ const App = () => {
           </option>
         )}
       </select>
-      <div style={styles.caption}>
-        {songs[song].description}
-      </div>
+
     </>
   )
 }
