@@ -14,7 +14,7 @@ const App = () => {
       , progressRef = useRef(null)
   
   useEffect(() => {
-    const keyUp = (e: KeyboardEvent) => {
+    const keyDown = (e: KeyboardEvent) => {
       e.preventDefault()
       if (e.key >= '1' && e.key <= songs[song].tracks.length.toString()) {
         const track = parseInt(e.key) - 1
@@ -27,8 +27,8 @@ const App = () => {
       } else if (e.key === ' ')
         Transport.state === 'started' ? Transport.stop() : Transport.start()
     }
-    document.addEventListener('keyup', keyUp)
-    return () => document.removeEventListener('keyup', keyUp)
+    document.addEventListener('keydown', keyDown)
+    return () => document.removeEventListener('keydown', keyDown)
   }, [unmutedTracks])
 
   useEffect(() => {
