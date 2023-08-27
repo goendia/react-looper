@@ -14,14 +14,14 @@ const styles = {
       marginBottom: '2%',
       marginLeft: 'auto',
       marginRight: 'auto',
-      backgroundColor: 'black',
+      backgroundColor: 'transparent',
       fontSize: '15px',
       color: 'white',
       border: 'none',
     },
     caption: {
         marginTop: '15px',
-      backgroundColor: 'black',
+      backgroundColor: 'transparent',
       color: 'white', 
     }
   }
