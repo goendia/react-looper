@@ -1,6 +1,6 @@
 const styles = {
     container: {
-      //position: 'relative' as 'relative'
+      position: 'relative' as 'relative'
     },
     progress: {
       width: 3,
