@@ -39,6 +39,7 @@ const Track = ({
   }, []); // Empty dependency array means this effect runs once on mount and clean up on unmount
 
   const player = useMemo(() => {
+    if (!buffer) return;
     // Initialize the player
     const player = new Tone.Player({
       url: buffer,
@@ -66,12 +67,14 @@ const Track = ({
 
   // Pass through mute state
   useEffect(() => {
+    if (!player) return;
     player.mute = muted;
   }, [muted, player]);
 
   // Dispose player when component is unmounted
   useEffect(
     () => () => {
+      if (!player) return;
       player.dispose();
     },
     []
