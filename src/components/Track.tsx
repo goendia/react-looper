@@ -77,7 +77,7 @@ const Track = ({
       if (!player) return;
       player.dispose();
     },
-    []
+    [buffer]
   );
 
   return (
