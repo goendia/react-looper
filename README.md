@@ -20,5 +20,6 @@ To run this project, follow these steps:
 ### Tech Stack
 * TypeScript
 * React framework
+* [Tone.js](https://tonejs.github.io/)
 
 Come check out my looper and enjoy some original tunes! 😊
