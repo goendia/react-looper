@@ -3,7 +3,7 @@
 ![react-looper.png](https://raw.githubusercontent.com/goendia/react-looper/master/react-looper.png)
 
 ### Description
-A React looper for my personal website, featuring all original songs and tracks created by myself. This project utilizes TypeScript and the React framework to bring you an immersive audio experience.
+A React looper for [my personal website](https://www.goendia.de), featuring all original songs and tracks created by myself. This project utilizes TypeScript, the React framework and Tone.js to bring you an immersive audio experience.
 
 ### Features
 * **Track control**: Start/stop each track by clicking on it or use number keys to start and stop individual tracks, or use the space key to toggle the entire song.
